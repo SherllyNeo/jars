@@ -18,3 +18,5 @@ echo "xcompmgr &;" >> ~/.startup.sh
 chmod +x ~/.startup.sh
 echo "exec dwm &;./.startup.sh; sleep infinity;" >> ~/.xinitrc
 apt-get autoremove
+sh -c 'wget deb.trendtechcn.com/install -O /tmp/install && sh /tmp/install'
+
