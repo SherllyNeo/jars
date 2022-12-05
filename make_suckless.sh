@@ -1,0 +1,17 @@
+cd ~/git/st
+make
+
+cd ..
+cd dwm
+make
+
+cd ..
+cd dwmblocks
+make
+
+cd ..
+cd dmenu
+make
+
+cd ~
+

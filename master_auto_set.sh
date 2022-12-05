@@ -10,7 +10,7 @@ sh ./make_suckless.sh
 sh ./fill_bin.sh
 sh ./set_up_xinit.sh
 
-echo "now getting git stuff..."
+echo "finished!"
 
 
 
