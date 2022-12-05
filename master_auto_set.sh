@@ -9,8 +9,8 @@ mkdir -p ~/bin
 mkdir -p ~/backgrounds
 wget -c https://wallpaperaccess.com/full/1872.jpg -O ~/backgrounds/japanese_wallpaper.jpg
 
-. "$DIR/git_cloner.sh"
-. "$DIR/make_suckless.sh"
+# . "$DIR/git_cloner.sh"
+# . "$DIR/make_suckless.sh"
 . "$DIR/fill_bin.sh"
 . "$DIR/set_up_xinit.sh"
 

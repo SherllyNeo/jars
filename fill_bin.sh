@@ -1,8 +1,8 @@
 cd ~/bin
 
-ln -sf ~/git/dwm/dwm .
-ln -sf ~/git/dwm/dwmblocks .
-ln -sf ~/git/dwm/st .
-ln -sf ~/git/dwm/dmenu .
+ln -sf ~/git/dwm/dwm.h .
+ln -sf ~/git/dwm/dwmblocks.h .
+ln -sf ~/git/dwm/st.h .
+ln -sf ~/git/dwm/dmenu.h .
 
 cd ~
