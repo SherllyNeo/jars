@@ -13,5 +13,5 @@ cd ..
 cd dmenu
 make
 
-cd ~
+
 
