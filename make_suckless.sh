@@ -1,4 +1,4 @@
-cd ~/git/st
+cd $HOME/git/st
 make
 
 cd ..

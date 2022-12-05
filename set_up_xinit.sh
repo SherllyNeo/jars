@@ -1,3 +1,3 @@
-cp .xinitrc ~/.xinitrc
+cp .xinitrc $HOME/.xinitrc
 
 echo "set up .xinitrc"

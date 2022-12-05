@@ -1,8 +1,8 @@
 
 
-ln -sf ~/git/dwm/dwm.h ~/bin/
-ln -sf ~/git/dwm/dwmblocks.h ~/bin/
-ln -sf ~/git/dwm/st.h ~/bin/
-ln -sf ~/git/dwm/dmenu.h ~/bin/
+ln -sf $HOME/git/dwm/dwm.h $HOME/bin/
+ln -sf $HOME/git/dwm/dwmblocks.h $HOME/bin/
+ln -sf $HOME/git/dwm/st.h $HOME/bin/
+ln -sf $HOME/git/dwm/dmenu.h $HOME/bin/
 echo "filled bin!"
 
