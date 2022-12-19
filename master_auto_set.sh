@@ -6,9 +6,8 @@ THIS=`readlink -f "${BASH_SOURCE[0]}" 2>/dev/null||echo $0`
 DIR=`dirname "${THIS}"`
 . "$DIR/dependency_installer.sh"
 mkdir -p $HOME/bin
-mkdir -p $HOME/backgrounds
-wget -c https://wallpaperaccess.com/full/1872.jpg -O $HOME/backgrounds/japanese_wallpaper.jpg
 
+. "$DIR/background.sh"
 . "$DIR/git_cloner.sh"
 . "$DIR/make_suckless.sh"
 . "$DIR/fill_bin.sh"
