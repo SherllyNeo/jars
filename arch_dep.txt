@@ -1,0 +1,1 @@
+sudo pacman -Syu base-devel libx11 libxft libxinerama freetype2 fontconfig xcompmgr feh xorg xterm xorg-xinit firefox vim texlive mplayer	neofetch net-tools newsboat alsa-utils cava build-essentials keepassxc 
