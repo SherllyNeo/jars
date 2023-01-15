@@ -3,7 +3,7 @@
 # Jacob's Auto Rice Script (JARS)
 
 dotfilesrepo="https://github.com/sherllyneo/dotfiles.git"
-progsfile="https://raw.githubusercontent.com/sherllyneo/JARS/master/programs.csv"
+progsfile="https://raw.githubusercontent.com/SherllyNeo/jars/main/progs.csv"
 aurhelper="yay"
 repobranch="main"
 
