@@ -142,6 +142,23 @@ gitmakeinstall() {
 	make install >/dev/null 2>&1
 	cd /tmp || return 1
 }
+
+git_get() {
+	progname="${1##*/}"
+	progname="${progname%.git}"
+	dir="$repodir/$progname"
+	whiptail --title "JARS Installation" \
+		--infobox "Installing \`$progname\` ($n of $total) via \`git\` and \`make\`. $(basename "$1") $2" 8 70
+	sudo -u "$name" git -C "$repodir" clone --depth 1 --single-branch \
+		--no-tags -q "$1" "$dir" ||
+		{
+			cd "$dir" || return 1
+			sudo -u "$name" git pull --force origin master
+		}
+	cd "$dir" || exit 1
+	cd /tmp || return 1
+}
+
 gitrustinstall() {
 	progname="${1##*/}"
 	progname="${progname%.git}"
@@ -156,7 +173,7 @@ gitrustinstall() {
 		}
 	cd "$dir" || exit 1
 	cargo build --release >/dev/null 2>&1
-	cargo  install --path . --root /home/$name >/dev/null 2>&1
+	cargo  install --path . --root /usr/local >/dev/null 2>&1
 	cd /tmp || return 1
 }
 
@@ -187,7 +204,8 @@ installationloop() {
 		"A") aurinstall "$program" "$comment" ;;
 		"G") gitmakeinstall "$program" "$comment" ;;
 		"P") pipinstall "$program" "$comment" ;;
-		"R") gitrustinstalll "$program" "$comment" ;;
+		"R") gitrustinstall "$program" "$comment" ;;
+		"GG") git_get "$program" "$comment" ;;
 		*) maininstall "$program" "$comment" ;;
 		esac
 	done </tmp/progs.csv
