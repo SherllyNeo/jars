@@ -21,7 +21,7 @@ error() {
 
 welcomemsg() {
 	whiptail --title "Welcome!" \
-		--msgbox "Welcome to Jacob's auto ricing Script!\\n\\nThis script will automatically install a fully-featured Linux desktop, which I use as my main machine.\\n\\Sherlly" 10 60
+		--msgbox "Welcome to Jacob's auto ricing Script!\\n\\nThis script will automatically install a fully-featured Linux desktop, which I use as my main machine. Make sure to have yay and git and curl installed\\n\\Sherlly" 10 60
 	
 
 	whiptail --title "Important Note!" --yes-button "All ready!" \
@@ -293,7 +293,7 @@ sed -Ei "s/^#(ParallelDownloads).*/\1 = 5/;/^#Color$/s/#//" /etc/pacman.conf
 # Use all cores for compilation.
 sed -i "s/-j2/-j$(nproc)/;/^#MAKEFLAGS/s/^#//" /etc/makepkg.conf
 
-manualinstall yay || error "Failed to install AUR helper."
+# manualinstall yay || error "Failed to install AUR helper."
 
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
