@@ -5,7 +5,7 @@
 dotfilesrepo="https://github.com/sherllyneo/dotfiles.git"
 progsfile="https://raw.githubusercontent.com/SherllyNeo/jars/main/progs.csv"
 aurhelper="yay"
-repobranch="main"
+repobranch="master"
 
 ### FUNCTIONS ###
 
@@ -21,7 +21,7 @@ error() {
 
 welcomemsg() {
 	whiptail --title "Welcome!" \
-		--msgbox "Welcome to Jacob's auto ricing Script!\\n\\nThis script will automatically install a fully-featured Linux desktop, which I use as my main machine. Make sure to have yay and git and curl installed\\n\\Sherlly" 10 60
+		--msgbox "Welcome to Jacob's auto ricing Script!\\n\\nThis script will automatically install a fully-featured Linux desktop, which I use as my main machine.\\n\\Sherlly" 10 60
 	
 
 	whiptail --title "Important Note!" --yes-button "All ready!" \
@@ -148,12 +148,12 @@ git_get() {
 	progname="${progname%.git}"
 	dir="$repodir/$progname"
 	whiptail --title "JARS Installation" \
-		--infobox "Installing \`$progname\` ($n of $total) via \`git\` and \`make\`. $(basename "$1") $2" 8 70
+		--infobox "adding \`$progname\` ($n of $total) via \`git\` . $(basename "$1") $2" 8 70
 	sudo -u "$name" git -C "$repodir" clone --depth 1 --single-branch \
 		--no-tags -q "$1" "$dir" ||
 		{
 			cd "$dir" || return 1
-			sudo -u "$name" git pull --force origin master
+			sudo -u "$name" git pull --force origin main
 		}
 	cd "$dir" || exit 1
 	cd /tmp || return 1
@@ -164,12 +164,12 @@ gitrustinstall() {
 	progname="${progname%.git}"
 	dir="$repodir/$progname"
 	whiptail --title "JARS Installation" \
-		--infobox "Installing \`$progname\` ($n of $total) via \`git\` and \`make\`. $(basename "$1") $2" 8 70
+		--infobox "Installing \`$progname\` ($n of $total) via \`git\` and \`cargo install\`. $(basename "$1") $2" 8 70
 	sudo -u "$name" git -C "$repodir" clone --depth 1 --single-branch \
 		--no-tags -q "$1" "$dir" ||
 		{
 			cd "$dir" || return 1
-			sudo -u "$name" git pull --force origin master
+			sudo -u "$name" git pull --force origin main
 		}
 	cd "$dir" || exit 1
 	cargo build --release >/dev/null 2>&1
@@ -230,7 +230,6 @@ vimplugininstall() {
 	mkdir -p "/home/$name/.config/nvim/autoload"
 	curl -Ls "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" >  "/home/$name/.config/nvim/autoload/plug.vim"
 	chown -R "$name:wheel" "/home/$name/.config/nvim"
-	sudo -u "$name" nvim -c "PlugInstall|q|q"
 }
 
 finalize() {
@@ -246,8 +245,8 @@ finalize() {
 pacman --noconfirm --needed -Sy libnewt ||
 	error "Are you sure you're running this as the root user, are on an Arch-based distribution and have an internet connection?"
 
-pacman -Syu curl || error "sailed to install curl"
-curl https://sh.rustup.rs -sSf | sh || error "failed to install rust"
+#pacman -Syu curl || error "sailed to install curl"
+#curl https://sh.rustup.rs -sSf | sh || error "failed to install rust"
 
 # Welcome user and pick dotfiles.
 welcomemsg || error "User exited."
@@ -293,7 +292,7 @@ sed -Ei "s/^#(ParallelDownloads).*/\1 = 5/;/^#Color$/s/#//" /etc/pacman.conf
 # Use all cores for compilation.
 sed -i "s/-j2/-j$(nproc)/;/^#MAKEFLAGS/s/^#//" /etc/makepkg.conf
 
-# manualinstall yay || error "Failed to install AUR helper."
+#manualinstall yay || error "Failed to install AUR helper."
 
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
@@ -303,7 +302,7 @@ installationloop
 
 # Install the dotfiles in the user's home directory, but remove .git dir and
 # other unnecessary files.
-putgitrepo "$dotfilesrepo" "/home/$name" "$repobranch"
+putgitrepo "$dotfilesrepo" "/home/$name" "master"
 rm -rf "/home/$name/.git/" "/home/$name/README.md" "/home/$name/LICENSE" "/home/$name/FUNDING.yml"
 
 # Install vim plugins if not alread present.
