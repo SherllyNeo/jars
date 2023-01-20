@@ -20,7 +20,6 @@ GG,https://github.com/SherllyNeo/mentalism_repo.git,"Mentalism performance notes
 ,arandr,"allows the user to customize monitor arrangements."
 ,dosfstools,"allows your computer to access dos-like filesystems."
 ,libnotify,"allows desktop notifications."
-,dunst,"is a suckless notification system."
 ,exfat-utils,"allows management of FAT drives."
 ,sxiv,"is a minimalist image viewer."
 ,xwallpaper,"sets the wallpaper."
@@ -76,4 +75,3 @@ A,mutt-wizard-git,"is a light-weight terminal-based email system."
 A,cava,"audio viewer"
 A,KeePassXC,"password Manager"
 ,bashtop,"system manager"
-
