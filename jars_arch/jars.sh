@@ -306,7 +306,7 @@ putgitrepo "$dotfilesrepo" "/home/$name" "master"
 rm -rf "/home/$name/.git/" "/home/$name/README.md" "/home/$name/LICENSE" "/home/$name/FUNDING.yml"
 
 # Install vim plugins if not alread present.
-[ ! -f "/home/$name/.config/nvim/autoload/plug.vim" ] && vimplugininstall
+git clone --depth 1 https://github.com/wbthomason/packer.nvim "/home/$name/.local/share/nvim/site/pack/packer/start/packer.nvim"
 
 # Most important command! Get rid of the beep!
 rmmod pcspkr
