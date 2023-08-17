@@ -224,13 +224,6 @@ putgitrepo() {
 	sudo -u "$name" cp -rfT "$dir" "$2"
 }
 
-vimplugininstall() {
-	# Installs vim plugins.
-	whiptail --infobox "Installing neovim plugins..." 7 60
-	mkdir -p "/home/$name/.config/nvim/autoload"
-	curl -Ls "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" >  "/home/$name/.config/nvim/autoload/plug.vim"
-	chown -R "$name:wheel" "/home/$name/.config/nvim"
-}
 
 finalize() {
 	whiptail --title "All done!" \
