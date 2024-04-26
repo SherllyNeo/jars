@@ -1,5 +1,6 @@
 #TAG,NAME IN REPO (or git url),PURPOSE (should be a verb phrase to sound right while installing)
-R,https://github.com/SherllyNeo/Sherlly_password_manager.git,"password manager I wrote in rust"
+,pass,"standard unix pass manager"
+,passmenu,"dmenu for pass"
 GG,https://github.com/SherllyNeo/suckless_mental_trainer,"Suckless mental trainer"
 GG,https://github.com/SherllyNeo/cmail_cli_app,"simple email app"
 GG,https://github.com/SherllyNeo/better_task_manager,"better task manager"
@@ -69,6 +70,8 @@ G,https://github.com/sherllyneo/dwm.git,"alternate windows manager - my fork of 
 G,https://github.com/sherllyneo/dwmblocks.git,"statusbar for dwm"
 ,neomutt,"A lightweight email client"
 A,fzf,"fuzzy finder"
+A,oath-toolkit,"Open authentication"
+A,zbar,"bar code and qrcode reader"
 ,slock,"allows you to lock your computer, and quickly unlock with your password."
 ,socat,"is a utility which establishes two byte streams and transfers data between them."
 ,moreutils,"is a collection of useful unix tools."
